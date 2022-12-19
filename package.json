@@ -1,0 +1,32 @@
+{
+  "name": "next-13-app-dir-i18next-example",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "build": "next build",
+    "dev": "next dev",
+    "lint": "next lint",
+    "start": "next start",
+    "migrateToLocize": "locize migrate --project-id=01b2e5e8-6243-47d1-b36f-963dbb8bcae3 --api-key=c9805cd1-fd50-4d98-967a-383b39066de8 --path=./app/i18n/locales",
+    "downloadLocales": "locize download --project-id=01b2e5e8-6243-47d1-b36f-963dbb8bcae3 --ver=latest --clean=true --path=./app/i18n/locales",
+    "syncLocales": "locize sync --project-id=01b2e5e8-6243-47d1-b36f-963dbb8bcae3 --api-key=bd8cb856-d6b3-4c82-a456-862c729a1674 --ver=latest --path=./app/i18n/locales --dry=true"
+  },
+  "dependencies": {
+    "accept-language": "3.0.18",
+    "i18next": "22.4.6",
+    "i18next-browser-languagedetector": "7.0.1",
+    "i18next-resources-to-backend": "1.1.1",
+    "next": "13.0.7",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-i18next": "12.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "18.11.17",
+    "@types/react": "18.0.26",
+    "eslint": "8.30.0",
+    "eslint-config-next": "13.0.7",
+    "locize-cli": "7.13.1",
+    "typescript": "4.9.4"
+  }
+}
