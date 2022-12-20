@@ -18,14 +18,13 @@ export async function useTranslation<
   TKPrefix extends KeyPrefix<N>,
 >(
   lng: string,
-  ns?: N | Readonly<N>,
+  ns?: N,
   options: { keyPrefix?: TKPrefix } = {}
 ) {
   const i18nextInstance = await initI18next(lng, Array.isArray(ns) ? ns as string[] : ns as string)
   return {
-    // t: i18nextInstance.getFixedT<N, TKPrefix>(lng, ns, options.keyPrefix),
     // TODO: solve TKPrefix problem here...
-    t: i18nextInstance.getFixedT<N>(lng, ns),
+    t: i18nextInstance.getFixedT(lng, ns/*, options.keyPrefix*/),
     i18n: i18nextInstance
   }
 }
