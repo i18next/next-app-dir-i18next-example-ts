@@ -1,5 +1,6 @@
 'use client'
 
+import { useEffect } from 'react'
 import i18next, { Namespace, KeyPrefix } from 'i18next'
 import { initReactI18next, useTranslation as useTranslationOrg, UseTranslationOptions, UseTranslationResponse } from 'react-i18next'
 import resourcesToBackend from 'i18next-resources-to-backend'
@@ -29,6 +30,9 @@ export function useTranslation<
   ns?: N | Readonly<N>,
   options?: UseTranslationOptions<TKPrefix>,
 ): UseTranslationResponse<N, TKPrefix> {
-  if (i18next.resolvedLanguage !== lng) i18next.changeLanguage(lng)
+  useEffect(() => {
+    if (i18next.resolvedLanguage === lng) return
+    i18next.changeLanguage(lng)
+  }, [lng])
   return useTranslationOrg(ns, options)
 }
