@@ -22,6 +22,8 @@ i18next
     }
   })
 
+const runsOnServerSide = typeof window === 'undefined'
+
 export function useTranslation<
   N extends Namespace,
   TKPrefix extends KeyPrefix<N> = undefined
@@ -30,9 +32,14 @@ export function useTranslation<
   ns?: N | Readonly<N>,
   options?: UseTranslationOptions<TKPrefix>,
 ): UseTranslationResponse<N, TKPrefix> {
-  useEffect(() => {
-    if (i18next.resolvedLanguage === lng) return
+  if (runsOnServerSide && i18next.resolvedLanguage !== lng) {
     i18next.changeLanguage(lng)
-  }, [lng])
+  } else {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    useEffect(() => {
+      if (i18next.resolvedLanguage === lng) return
+      i18next.changeLanguage(lng)
+    }, [lng])
+  }
   return useTranslationOrg(ns, options)
 }
