@@ -32,14 +32,16 @@ export function useTranslation<
   ns?: N | Readonly<N>,
   options?: UseTranslationOptions<TKPrefix>,
 ): UseTranslationResponse<N, TKPrefix> {
-  if (runsOnServerSide && i18next.resolvedLanguage !== lng) {
-    i18next.changeLanguage(lng)
+  const ret = useTranslationOrg(ns, options)
+  const { i18n } = ret
+  if (runsOnServerSide && i18n.resolvedLanguage !== lng) {
+    i18n.changeLanguage(lng)
   } else {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     useEffect(() => {
-      if (i18next.resolvedLanguage === lng) return
-      i18next.changeLanguage(lng)
-    }, [lng])
+      if (i18n.resolvedLanguage === lng) return
+      i18n.changeLanguage(lng)
+    }, [lng, i18n])
   }
-  return useTranslationOrg(ns, options)
+  return ret
 }
