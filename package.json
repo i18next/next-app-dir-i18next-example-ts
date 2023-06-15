@@ -27,7 +27,7 @@
     "@types/react": "18.2.12",
     "eslint": "8.42.0",
     "eslint-config-next": "13.4.5",
-    "i18next-resources-for-ts": "1.2.0",
+    "i18next-resources-for-ts": "1.2.1",
     "locize-cli": "7.14.6",
     "typescript": "5.1.3"
   }
