@@ -1,8 +1,8 @@
 'use client'
 
 import { useEffect } from 'react'
-import i18next, { Namespace, KeyPrefix } from 'i18next'
-import { initReactI18next, useTranslation as useTranslationOrg, UseTranslationOptions, UseTranslationResponse } from 'react-i18next'
+import i18next, { FlatNamespace, KeyPrefix } from 'i18next'
+import { initReactI18next, useTranslation as useTranslationOrg, UseTranslationOptions, UseTranslationResponse, FallbackNs } from 'react-i18next'
 import resourcesToBackend from 'i18next-resources-to-backend'
 // import LocizeBackend from 'i18next-locize-backend'
 import LanguageDetector from 'i18next-browser-languagedetector'
@@ -12,7 +12,7 @@ import { getOptions } from './settings'
 i18next
   .use(initReactI18next)
   .use(LanguageDetector)
-  .use(resourcesToBackend((language, namespace) => import(`./locales/${language}/${namespace}.json`)))
+  .use(resourcesToBackend((language: string, namespace: string) => import(`./locales/${language}/${namespace}.json`)))
   // .use(LocizeBackend) // locize backend could be used on client side, but prefer to keep it in sync with server side
   .init({
     ...getOptions(),
@@ -25,13 +25,13 @@ i18next
 const runsOnServerSide = typeof window === 'undefined'
 
 export function useTranslation<
-  N extends Namespace,
-  TKPrefix extends KeyPrefix<N> = undefined
+  Ns extends FlatNamespace,
+  KPrefix extends KeyPrefix<FallbackNs<Ns>> = undefined
 >(
   lng: string,
-  ns?: N | Readonly<N>,
-  options?: UseTranslationOptions<TKPrefix>,
-): UseTranslationResponse<N, TKPrefix> {
+  ns?: Ns,
+  options?: UseTranslationOptions<KPrefix>,
+): UseTranslationResponse<FallbackNs<Ns>, KPrefix> {
   const ret = useTranslationOrg(ns, options)
   const { i18n } = ret
   if (runsOnServerSide && i18n.resolvedLanguage !== lng) {

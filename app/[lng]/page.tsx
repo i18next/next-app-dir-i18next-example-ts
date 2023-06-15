@@ -46,7 +46,6 @@ export default async function Page({ params: { lng } }: {
           </Link>
         </div>
       </main>
-      {/* @ts-expect-error Server Component */}
       <Footer lng={lng}/>
     </>
   )
