@@ -35,12 +35,12 @@ export function useTranslation<
 ): UseTranslationResponse<FallbackNs<Ns>, KPrefix> {
   const ret = useTranslationOrg(ns, options)
   const { i18n } = ret
-  if (runsOnServerSide && i18n.resolvedLanguage !== lng) {
+  if (runsOnServerSide && lng && i18n.resolvedLanguage !== lng) {
     i18n.changeLanguage(lng)
   } else {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     useEffect(() => {
-      if (i18n.resolvedLanguage === lng) return
+      if (!lng || i18n.resolvedLanguage === lng) return
       i18n.changeLanguage(lng)
     }, [lng, i18n])
   }
