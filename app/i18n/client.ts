@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import i18next, { FlatNamespace, KeyPrefix } from 'i18next'
 import { initReactI18next, useTranslation as useTranslationOrg, UseTranslationOptions, UseTranslationResponse, FallbackNs } from 'react-i18next'
+import { useCookies } from 'react-cookie'
 import resourcesToBackend from 'i18next-resources-to-backend'
 // import LocizeBackend from 'i18next-locize-backend'
 import LanguageDetector from 'i18next-browser-languagedetector'
@@ -33,6 +34,7 @@ export function useTranslation<
   ns?: Ns,
   options?: UseTranslationOptions<KPrefix>,
 ): UseTranslationResponse<FallbackNs<Ns>, KPrefix> {
+  const [cookies, setCookie] = useCookies(['i18next'])
   const ret = useTranslationOrg(ns, options)
   const { i18n } = ret
   if (runsOnServerSide && lng && i18n.resolvedLanguage !== lng) {
@@ -50,6 +52,11 @@ export function useTranslation<
       if (!lng || i18n.resolvedLanguage === lng) return
       i18n.changeLanguage(lng)
     }, [lng, i18n])
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    useEffect(() => {
+      if (cookies.i18next === lng) return
+      setCookie('i18next', lng, { path: '/' })
+    }, [lng, cookies.i18next])
   }
   return ret
 }
