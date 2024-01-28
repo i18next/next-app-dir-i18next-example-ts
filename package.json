@@ -14,22 +14,24 @@
   },
   "dependencies": {
     "accept-language": "3.0.18",
-    "i18next": "23.7.7",
+    "i18next": "23.7.20",
     "i18next-browser-languagedetector": "7.2.0",
     "i18next-resources-to-backend": "1.2.0",
-    "next": "14.0.3",
+    "next": "14.1.0",
     "react": "18.2.0",
-    "react-cookie": "6.1.1",
+    "react-cookie": "7.0.2",
     "react-dom": "18.2.0",
-    "react-i18next": "13.5.0"
+    "react-i18next": "14.0.1"
   },
   "devDependencies": {
-    "@types/node": "20.10.0",
-    "@types/react": "18.2.39",
-    "eslint": "8.54.0",
-    "eslint-config-next": "14.0.3",
-    "i18next-resources-for-ts": "1.4.0",
-    "locize-cli": "7.14.14",
-    "typescript": "5.3.2"
+    "@types/node": "20.11.8",
+    "@types/react": "18.2.48",
+    "@typescript-eslint/eslint-plugin": "6.19.1",
+    "@typescript-eslint/parser": "6.19.1",
+    "eslint": "8.56.0",
+    "eslint-config-next": "14.1.0",
+    "i18next-resources-for-ts": "1.5.0",
+    "locize-cli": "8.0.0",
+    "typescript": "5.3.3"
   }
 }
