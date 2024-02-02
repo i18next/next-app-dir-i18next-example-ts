@@ -21,7 +21,6 @@ export default async function Page({ params: { lng } }: {
           </button>
         </Link>
       </main>
-      {/* @ts-expect-error Server Component */}
       <Footer lng={lng} path="/second-page" />
     </>
   )

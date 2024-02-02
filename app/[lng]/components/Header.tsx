@@ -1,4 +1,4 @@
-export const Header = ({ heading }) => (
+export const Header = ({ heading }: { heading: string }) => (
   <>
     <h2>
       Next.js 13 <small>(app directory)</small> - i18next

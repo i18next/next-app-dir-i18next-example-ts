@@ -1,6 +1,10 @@
 import { useTranslation } from '../../i18n'
 
-export default async function Head({ params: { lng } }) {
+export default async function Head({ params: { lng } }: {
+  params: {
+    lng: string;
+  };
+}) {
   const { t } = await useTranslation(lng, 'second-client-page')
 
   return (

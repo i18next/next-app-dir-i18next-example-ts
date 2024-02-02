@@ -12,6 +12,11 @@ export default function RootLayout({
   params: {
     lng
   }
+}: {
+  children: React.ReactNode;
+  params: {
+    lng: string;
+  };
 }) {
   return (
     <html lang={lng} dir={dir(lng)}>
