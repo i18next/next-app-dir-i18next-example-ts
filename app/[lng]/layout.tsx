@@ -19,7 +19,7 @@ export default function RootLayout({
   };
 }) {
   return (
-    <html lang={lng} dir={dir(lng)}>
+    <html style={{overflowX:'hidden'}} lang={lng} dir={dir(lng)}>
       <head />
       <body>
         {children}
