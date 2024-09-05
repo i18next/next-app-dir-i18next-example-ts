@@ -14,26 +14,26 @@
     "i18next-resources-for-ts": "i18next-resources-for-ts interface -i ./app/i18n/locales/en -o ./@types/resources.d.ts"
   },
   "dependencies": {
-    "accept-language": "3.0.18",
-    "i18next": "23.11.5",
+    "accept-language": "3.0.20",
+    "i18next": "23.14.0",
     "i18next-browser-languagedetector": "8.0.0",
     "i18next-resources-to-backend": "1.2.1",
-    "next": "14.2.3",
+    "next": "14.2.8",
     "react": "18.3.1",
-    "react-cookie": "7.1.4",
+    "react-cookie": "7.2.0",
     "react-dom": "18.3.1",
-    "react-i18next": "14.1.2"
+    "react-i18next": "15.0.1"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "7.24.6",
-    "@types/node": "20.13.0",
-    "@types/react": "18.3.3",
+    "@babel/eslint-parser": "7.25.1",
+    "@types/node": "22.5.4",
+    "@types/react": "18.3.5",
     "@typescript-eslint/eslint-plugin": "7.11.0",
     "@typescript-eslint/parser": "7.11.0",
     "eslint": "8.56.0",
-    "eslint-config-next": "14.2.3",
+    "eslint-config-next": "14.2.8",
     "i18next-resources-for-ts": "1.5.0",
-    "locize-cli": "8.0.1",
-    "typescript": "5.4.5"
+    "locize-cli": "8.0.2",
+    "typescript": "5.5.4"
   }
 }
