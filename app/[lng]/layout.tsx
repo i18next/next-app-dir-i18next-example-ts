@@ -8,11 +8,12 @@ export async function generateStaticParams() {
   return languages.map((lng) => ({ lng }))
 }
 
-export async function generateMetadata({ params: { lng } }: {
+export async function generateMetadata({ params }: {
   params: {
     lng: string;
   };
 }) {
+  let { lng } = await params
   if (languages.indexOf(lng) < 0) lng = fallbackLng
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { t } = await useTranslation(lng)
@@ -22,17 +23,16 @@ export async function generateMetadata({ params: { lng } }: {
   }
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
-  params: {
-    lng
-  }
+  params,
 }: {
   children: React.ReactNode;
   params: {
     lng: string;
   };
 }) {
+  const { lng } = await params
   return (
     <html lang={lng} dir={dir(lng)}>
       <head />

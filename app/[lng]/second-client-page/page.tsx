@@ -1,15 +1,15 @@
 'use client'
 
+import * as React from 'react'
 import Link from 'next/link'
 import { useTranslation } from '../../i18n/client'
 import { Header } from '../components/Header'
 import { Footer } from '../components/Footer/client'
 
-export default function Page({ params: { lng } }: {
-  params: {
-    lng: string;
-  };
+export default function Page({ params }: {
+  params: any
 }) {
+  const { lng } = React.use<{ lng: string }>(params)
   const { t } = useTranslation(lng, 'second-client-page')
   return (
     <>

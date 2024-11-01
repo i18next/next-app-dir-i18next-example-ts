@@ -5,11 +5,12 @@ import { useTranslation } from '../i18n'
 import { Header } from './components/Header'
 import { Footer } from './components/Footer'
 
-export default async function Page({ params: { lng } }: {
+export default async function Page({ params }: {
   params: {
     lng: string;
   };
 }) {
+  let { lng } = await params
   if (languages.indexOf(lng) < 0) lng = fallbackLng
   const { t } = await useTranslation(lng)
 
