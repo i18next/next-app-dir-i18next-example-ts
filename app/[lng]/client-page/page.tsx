@@ -8,7 +8,7 @@ import { Footer } from '../components/Footer/client'
 import { useState } from 'react'
 
 export default function Page({ params }: {
-  params: any
+  params: Promise<{ lng: string; }>;
 }) {
   const { lng } = React.use<{ lng: string }>(params)
   const { t } = useTranslation(lng, 'client-page')

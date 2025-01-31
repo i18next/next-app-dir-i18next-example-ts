@@ -6,12 +6,11 @@ import { Header } from './components/Header'
 import { Footer } from './components/Footer'
 
 export default async function Page({ params }: {
-  params: {
-    lng: string;
-  };
+  params: Promise<{ lng: string; }>;
 }) {
   let { lng } = await params
   if (languages.indexOf(lng) < 0) lng = fallbackLng
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const { t } = await useTranslation(lng)
 
   return (

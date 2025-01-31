@@ -7,7 +7,7 @@ import { Header } from '../components/Header'
 import { Footer } from '../components/Footer/client'
 
 export default function Page({ params }: {
-  params: any
+  params: Promise<{ lng: string; }>;
 }) {
   const { lng } = React.use<{ lng: string }>(params)
   const { t } = useTranslation(lng, 'second-client-page')

@@ -9,9 +9,7 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: {
-  params: {
-    lng: string;
-  };
+  params: Promise<{ lng: string; }>;
 }) {
   let { lng } = await params
   if (languages.indexOf(lng) < 0) lng = fallbackLng
@@ -19,7 +17,7 @@ export async function generateMetadata({ params }: {
   const { t } = await useTranslation(lng)
   return {
     title: t('title'),
-    content: 'A playground to explore new Next.js 13/14 app directory features such as nested layouts, instant loading states, streaming, and component level data fetching.'
+    content: 'A playground to explore new Next.js 13/14/15 app directory features such as nested layouts, instant loading states, streaming, and component level data fetching.'
   }
 }
 
@@ -28,9 +26,7 @@ export default async function RootLayout({
   params,
 }: {
   children: React.ReactNode;
-  params: {
-    lng: string;
-  };
+  params: Promise<{ lng: string; }>;
 }) {
   const { lng } = await params
   return (
