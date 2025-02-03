@@ -1,0 +1,9 @@
+{
+  "back-to-home": "返回首页",
+  "counter_one": "已选择一项",
+  "counter_other": "已选择{{count}}项",
+  "counter_zero": "未选择任何项",
+  "h1": "客户端页面，用于演示客户端国际化",
+  "title": "客户端页面",
+  "to-second-client-page": "跳转到第二客户端页面"
+}

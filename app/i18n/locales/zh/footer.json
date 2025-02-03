@@ -1,0 +1,5 @@
+{
+  "description": "这是一个需要独立命名空间的非页面组件",
+  "helpLocize": "使用<1>locize</1>可以直接支持<3>i18next</3>的未来。",
+  "languageSwitcher": "从<1>{{lng}}</1>切换到: "
+}
