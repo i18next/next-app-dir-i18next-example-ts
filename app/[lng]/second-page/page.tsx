@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { useTranslation } from '../../i18n'
-import { Header } from '../components/Header/Header'
+import { Header } from '../components/Header'
 import { Footer } from '../components/Footer'
 
 export default async function Page({ params }: {

@@ -3,7 +3,7 @@
 import * as React from 'react'
 import Link from 'next/link'
 import { useTranslation } from '../../i18n/client'
-import { Header } from '../components/Header/Header'
+import { Header } from '../components/Header'
 import { Footer } from '../components/Footer/client'
 
 export default function Page({ params }: {
