@@ -2,7 +2,6 @@ import Link from 'next/link'
 import { Trans } from 'react-i18next/TransWithoutContext'
 import { languages, fallbackLng } from '../i18n/settings'
 import { useTranslation } from '../i18n'
-import { Header } from './components/Header'
 import { Footer } from './components/Footer'
 
 export default async function Page({ params }: {
@@ -16,7 +15,8 @@ export default async function Page({ params }: {
   return (
     <>
       <main>
-        <Header heading={t('h1')} />
+      <Footer lng={lng}/>
+
         <h2>
           <Trans t={t} i18nKey="welcome">
             Welcome to Next.js v13 <small>appDir</small> and i18next
@@ -46,7 +46,7 @@ export default async function Page({ params }: {
           </Link>
         </div>
       </main>
-      <Footer lng={lng}/>
+      
     </>
   )
 }
