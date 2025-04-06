@@ -1,17 +1,12 @@
-import { languages, fallbackLng } from '../../i18n/settings'
-import { useTranslation } from '../../i18n'
+import { languages } from '../../i18n/settings'
+import { getT } from '../../i18n'
 
 export async function generateStaticParams() {
   return languages.map((lng) => ({ lng }))
 }
 
-export async function generateMetadata({ params }: {
-  params: Promise<{ lng: string; }>;
-}) {
-  let { lng } = await params
-  if (languages.indexOf(lng) < 0) lng = fallbackLng
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const { t } = await useTranslation(lng, 'client-page')
+export async function generateMetadata() {
+  const { t } = await getT('client-page')
   return {
     title: t('title')
   }

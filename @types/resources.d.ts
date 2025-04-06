@@ -16,7 +16,8 @@ interface Resources {
   "second-client-page": {
     "back-to-home": "Back to home",
     "h1": "A second client page, to demonstrate client side i18n",
-    "title": "Second client page"
+    "title": "Second client page",
+    "to-client-page": "to client page"
   },
   "second-page": {
     "back-to-home": "Back to home",

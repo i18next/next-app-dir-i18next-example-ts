@@ -1,27 +1,23 @@
-import Link from 'next/link'
-import { useTranslation } from '../../i18n'
+import { getT } from '../../i18n'
 import { Header } from '../components/Header'
 import { Footer } from '../components/Footer'
+import { Link } from '../components/Link'
 
-export default async function Page({ params }: {
-  params: Promise<{ lng: string; }>;
-}) {
-  let { lng } = await params
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const { t } = await useTranslation(lng, 'second-page')
+export default async function Page() {
+  const { t } = await getT('second-page')
   return (
     <>
       <main>
         <Header
           heading={t('h1')}
         />
-        <Link href={`/${lng}`}>
+        <Link href="/">
           <button type="button">
             {t('back-to-home')}
           </button>
         </Link>
       </main>
-      <Footer lng={lng} path="/second-page" />
+      <Footer path="/second-page" />
     </>
   )
 }
