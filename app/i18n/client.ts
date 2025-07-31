@@ -8,8 +8,10 @@ import { useTranslation, UseTranslationOptions, UseTranslationResponse, Fallback
 
 const runsOnServerSide = typeof window === 'undefined'
 
+type $Tuple<T> = readonly [T?, ...T[]];
+
 export function useT<
-  Ns extends FlatNamespace,
+  Ns extends FlatNamespace | $Tuple<FlatNamespace>,
   KPrefix extends KeyPrefix<FallbackNs<Ns>> = undefined
 >(
   ns?: Ns,
