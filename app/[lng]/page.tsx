@@ -26,7 +26,7 @@ export default async function Page() {
             <img
               style={{ width: '50%' }}
               alt="next 13 blog post"
-              src="https://cdn.prod.website-files.com/67a323e323a50df7f24f0a94/67f268673fcfae53e5d4697c_i18n-next-app-router.jpg"
+              src="https://www.locize.com/img/blog/i18n-next-app-router/i18n-next-app-router.jpg"
             />
           </a>
         </div>
